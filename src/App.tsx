@@ -1,14 +1,26 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import { CartProvider } from './CartContext';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
-function App() {
+import CartSidebar from './components/CartSidebar';
+import './App.css';
+
+const App: React.FC = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
-    <div className="App">
-        <Header />
+    <CartProvider>
+      <div className="app">
+        <Header toggleCart={toggleCart} />
         <ProductList />
-    </div>
+        <CartSidebar isOpen={isCartOpen} toggleCart={toggleCart} />
+      </div>
+    </CartProvider>
   );
-}
+};
 
 export default App;
