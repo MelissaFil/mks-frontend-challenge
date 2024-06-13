@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mks-frontend-challenge/static/css/main.359010e5.css",
+    "main.js": "/mks-frontend-challenge/static/js/main.2bc8106e.js",
+    "static/js/453.0582735a.chunk.js": "/mks-frontend-challenge/static/js/453.0582735a.chunk.js",
+    "index.html": "/mks-frontend-challenge/index.html",
+    "main.359010e5.css.map": "/mks-frontend-challenge/static/css/main.359010e5.css.map",
+    "main.2bc8106e.js.map": "/mks-frontend-challenge/static/js/main.2bc8106e.js.map",
+    "453.0582735a.chunk.js.map": "/mks-frontend-challenge/static/js/453.0582735a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.359010e5.css",
+    "static/js/main.2bc8106e.js"
+  ]
+}
