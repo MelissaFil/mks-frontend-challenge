@@ -10,14 +10,16 @@ interface CartSidebarProps {
 const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, toggleCart }) => {
   const cartContext = useContext(CartContext);
   if (!cartContext) return null;
-  const { cartItems, incrementItem, decrementItem } = cartContext;
+  const { cartItems, incrementItem, decrementItem, removeItem } = cartContext;
   const totalPrice = cartItems.reduce((total, item) => total + item.price * (item.quantity || 1), 0);
 
   return (
     <div className={`cart-sidebar ${isOpen ? 'open' : ''}`}>
-      <button className="close-button" onClick={toggleCart}>X</button>
-      <h2>Carrinho de Compras</h2>
-      <ul>
+      <div className='sidebarHeader'>
+        <button className="close-button" onClick={toggleCart}>X</button>
+        <h2>Carrinho de Compras</h2>
+      </div>
+      <ul className='list-products'>
         {cartItems.map((item) => (
           <li key={item.id} className="cart-item">
             <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
@@ -34,11 +36,12 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, toggleCart }) => {
               </div>
               <p>R${item.price}</p>
             </div>
+            <button className="remove-button" onClick={() => removeItem(item.id)}>X</button>
           </li>
         ))}
       </ul>
       <div className="cart-total">
-        <h3>Total: R${totalPrice.toFixed(2)}</h3>
+        <span> <p>Total:</p> R${totalPrice.toFixed(2)}</span>
         <button className="checkout-button">Finalizar Compra</button>
       </div>
     </div>
